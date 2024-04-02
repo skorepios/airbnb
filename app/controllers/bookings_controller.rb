@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @property = Property.find(params[:property_id])
     @checkin_date = Date.parse(params[:checkin_date])
@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
     @total_nights = numberOfNights
 
+    @per_night = @property.price
     @base_fare = @property.price * @total_nights
     @service_fee = @base_fare * 0.18
     @total_amount = @base_fare + @service_fee

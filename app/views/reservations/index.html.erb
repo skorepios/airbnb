@@ -10,7 +10,6 @@
     <% @reservations.each do |reservation| %>
       <div class="mt-4 border border-gray-300 rounded-xl p-6 h-min">
         <div class="flex justify-between items-center">
-          <%# TODO: Convert this into a partial as it is getting used at various places: share, reservations, reviews, bookings, etc. %>
           <%= render 'properties/mini_property_item', property: reservation.property %>
           <% if reservation.review.present? %>
             <span class="inline-flex items-center pointer-events-none block text-sm text-black mt-2">
@@ -49,7 +48,7 @@
         <div>
           <h3 class="text-xl font-medium text-gray-900">Price details</h3>
           <div class="flex justify-between font-light mt-6">
-            <p><%= humanized_money_with_symbol(reservation.property.price) %> x <%= (reservation.checkout_date - reservation.checkin_date).to_i %> night</p>
+            <p><%= humanized_money_with_symbol(reservation.payment.per_night) %> x <%= (reservation.checkout_date - reservation.checkin_date).to_i %> night</p>
             <p><%= humanized_money_with_symbol(reservation.payment.base_fare) %></p>
           </div>
           <div class="flex justify-between font-light mt-4">
