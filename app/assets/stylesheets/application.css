@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.h-screen-navbar {
+  height: calc(100vh - 112px); /* Adjust the height value based on your navbar height */
+}
  
 /* HTML marker styles */
 .price-tag {
