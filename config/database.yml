@@ -80,7 +80,5 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: airbnb_production
-  username: airbnb
-  password: <%= ENV["AIRBNB_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] =%>
