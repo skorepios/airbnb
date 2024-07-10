@@ -18,6 +18,6 @@ services:
           name: mysite
           property: connectionString
       - key: RAILS_MASTER_KEY
-        sync: true
+        sync: false
       - key: WEB_CONCURRENCY
         value: 2 # sensible default
